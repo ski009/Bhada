@@ -1,5 +1,29 @@
+
 .container{
   margin-top: 151pt;
-  width:500pt;
-  height: 800pt;
+  width:377pt;
+  height: 288pt;
+}
+
+.form_login{
+  margin-top: 10pt;
+}
+
+.card-header{
+  background-color: #c5f36a;
+}
+
+.card{
+  box-shadow: rgba(25,25,25,.10) 0 0 1px 0,rgba(195,201,191,60) 7px 11px 5px 0;
+}
+
+.heading{
+  color: red;
+  margin-left: 137pt;
+  font-family: monospace;
+  font-size: 54px;
+}
+
+.animate__animated.animate__lightSpeedInLeft {
+  --animate-duration: 3s;
 }
