@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from '../interface/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +21,14 @@ export class DataService {
   };
 
 
+  loginApi(user: User): Observable<User> {
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'my-new-auth-token');
 
-  getConfig() {
-   return this.httpClient.get<Config>(this.configUrl);
-  }
-
-  loginApi(user: User): Observable<Hero> {
-
-    httpOptions.headers =
-    httpOptions.headers.set('Authorization', 'my-new-auth-token');
-
-    return this.http.post<User>(this.configUrl, user, httpOptions)
+    return this.httpClient.post<User>(this.configUrl, user, this.httpOptions)
       .pipe(
-        catchError(this.handleError('user', user))
+        catchError(err => {
+          throw 'error in source. Details: ' + err;
+        })
       );
   }
 }
