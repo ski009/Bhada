@@ -1,35 +1,51 @@
-<div ng-app="myApp" ng-controller="myController" class="container">
-      <form name="myForm">
-        <div class="login-container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" ng-model="user.username" required class="form-control">
-                <div ng-show="myForm.email.$error.email" class="error">Invalid email!</div>
-                <div ng-show="myForm.email.$error.required &amp;&amp; myForm.email.$touched" class="error">Required!</div>
-              </div>
+<div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto">
+                <div class="card card-register">
+                    <h3 class="title">Welcome</h3>
+                    <div class="social-line text-center">
+                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                    <form class="register-form">
+                        <label>Email</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="nc-icon nc-email-85"></i>
+                            </span>
+                          </div>
+
+                            <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                        </div>
+
+                        <label>Password</label>
+                        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="nc-icon nc-key-25"></i>
+                            </span>
+                          </div>
+                            <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                        </div>
+                        <button class="btn btn-danger btn-block btn-round">Register</button>
+                    </form>
+                    <div class="forgot">
+                        <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="col text-center" routerLinkActive="active">
+                    <a [routerLink]="['/signup']" class="btn btn-outline-neutral btn-round btn-lg">View Register Page</a>
+                </div>
             </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="pass" ng-model="user.password" required class="form-control">
-                <div ng-show="myForm.pass.$error.required &amp;&amp; myForm.pass.$touched" class="error">Required!</div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <button ng-click="authenticate()" ng-disabled="myForm.$invalid" class="btn btn-success pull-right">Login</button>
-                <div class="clearfix"></div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div ng-show="showError" class="alert alert-danger">Wrong credentials!</div>
-              <div ng-show="showSuccess" class="alert alert-success">Login Successful!</div>
-            </div>
-          </div>
         </div>
-      </form>
     </div>
+</div>
